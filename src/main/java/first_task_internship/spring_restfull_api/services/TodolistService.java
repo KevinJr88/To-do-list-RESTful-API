@@ -9,6 +9,8 @@ public interface TodolistService {
     Response getAllTodolist();
     Response getTodolistById(Long id);
     Response deleteTodolistById(Long id);
+    Response getTodolistByTask(String task);
+    Response getTodolistByStatus(String task);
 
     Response updateTodolistByID(Long id, TodolistRequest todolistRequest);
 }
