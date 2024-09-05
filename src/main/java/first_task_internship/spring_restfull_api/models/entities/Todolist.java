@@ -4,8 +4,6 @@ import lombok.Getter;
 import org.hibernate.annotations.Where;
 
 import java.io.Serializable;
-
-
 import java.util.Date;
 
 

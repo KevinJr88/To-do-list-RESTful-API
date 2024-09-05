@@ -92,32 +92,7 @@ public class TodolistServiceImpl implements TodolistService{
 
         todolist = todolistRepo.save(todolist);
 
-
-
         return new Response(HttpStatus.OK.value(),"Successfully update data", todolist);
     }
-
-
-
-
-//    public Todolist save(Todolist todolist){
-//        return todolistRepo.save(todolist);
-//    }
-//
-//    public Todolist findOne(Long id){
-//        return todolistRepo.findById(id).get();
-//    }
-//
-//    public Iterable<Todolist> findAll(){
-//        return todolistRepo.findAll();
-//    }
-//
-//    public void removeOne(Long id){
-//        todolistRepo.deleteById(id);
-//    }
-//
-//    public List<Todolist> findByTask(String task){
-//        return todolistRepo.findByTaskContains(task);
-//    }
 
 }

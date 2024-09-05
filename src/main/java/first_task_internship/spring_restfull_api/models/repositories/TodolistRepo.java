@@ -10,7 +10,6 @@ public interface TodolistRepo extends JpaRepository<Todolist, Long> {
     List<Todolist> findAllByTaskContaining(String substring);
     List<Todolist> findAllByStatus(String substring);
 
-
 }
 
 
