@@ -1,0 +1,254 @@
+{
+	"info": {
+		"_postman_id": "03d24eb3-71ed-4f87-b6b5-e60631f5d848",
+		"name": "Simple-todolist-projects",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31199773"
+	},
+	"item": [
+		{
+			"name": "GetAllTodolist",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "GetAllById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/todolist/31",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"todolist",
+						"31"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreateTodolist",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"task\":\"Membaca Buku\",\r\n    \"note\":\"Buku Pelajaran Matematika Kelas 2 SMA\",\r\n    \"status\":\"Uncompleted\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/todolist",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"todolist"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateTodolistById",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"task\":\"Menonton Televisi\",\r\n    \"note\":\"nonton film kartun doraemon\",\r\n    \"status\":\"Uncompleted\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/todolist/31",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"todolist",
+						"31"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteTodolist",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/todolist/18",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"todolist",
+						"18"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetTodolistByStatus",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"status\":\"Uncompleted\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/todolist/filter",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"todolist",
+						"filter"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetTodolistByTask",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"task\":\"Mem\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/todolist/search",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"todolist",
+						"search"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAllPagination",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8084/api/todolist/0/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8084",
+					"path": [
+						"api",
+						"todolist",
+						"0",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAllPaginationByStatus",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8084/api/todolist/Uncompleted/0/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8084",
+					"path": [
+						"api",
+						"todolist",
+						"Uncompleted",
+						"0",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetCountTodolistByStatus",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8084/api/todolist/count/Uncompleted",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8084",
+					"path": [
+						"api",
+						"todolist",
+						"count",
+						"Uncompleted"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetCountTodolist",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}
