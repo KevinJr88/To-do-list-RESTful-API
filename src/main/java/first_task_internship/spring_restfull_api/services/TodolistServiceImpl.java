@@ -5,6 +5,9 @@ import first_task_internship.spring_restfull_api.models.entities.Todolist;
 import first_task_internship.spring_restfull_api.models.entities.TodolistRequest;
 import first_task_internship.spring_restfull_api.models.repositories.TodolistRepo;
 import jakarta.transaction.Transactional;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -66,8 +69,8 @@ public class TodolistServiceImpl implements TodolistService{
     }
 
     @Override
-    public Response getTodolistByTask(String task) {
-        List<Todolist> todolists = todolistRepo.findAllByTaskContaining(task);
+    public Response getTodolistByTask(String task, String status) {
+        List<Todolist> todolists = todolistRepo.findAllByTaskContainingAndStatus(task, status);
         Response response = new Response(HttpStatus.OK.value(),"Successfully get data", todolists);
         return response;
     }
@@ -94,5 +97,37 @@ public class TodolistServiceImpl implements TodolistService{
 
         return new Response(HttpStatus.OK.value(),"Successfully update data", todolist);
     }
+
+    public List<Todolist> findTodolistWithSorting(String field){
+        return todolistRepo.findAll(Sort.by(Sort.Direction.DESC, field));
+    }
+
+    public Page<Todolist> findTodolistWithPaginationByStatus(String status, int offset, int pageSize){
+        PageRequest pageRequest = PageRequest.of(offset, pageSize, Sort.by(Sort.Direction.DESC, "id"));
+        Page<Todolist> todolist = todolistRepo.findAllByStatus(status, pageRequest);
+        return todolist;
+    }
+
+    public Page<Todolist> findTodolistWithPagination(int offset, int pageSize){
+        PageRequest pageRequest = PageRequest.of(offset, pageSize, Sort.by(Sort.Direction.DESC, "id"));
+        Page<Todolist> todolist = todolistRepo.findAll(pageRequest);
+        return todolist;
+    }
+
+    public Page<Todolist> findTodolistWithPaginationAndSorting(int offset,int pageSize,String field){
+        Page<Todolist> todolist = todolistRepo.findAll(PageRequest.of(offset, pageSize).withSort(Sort.by(Sort.Direction.DESC, field)));
+        return  todolist;
+    }
+
+    public Response countTodolistByStatus(String status) {
+        Long count = todolistRepo.countByStatus(status);
+        return new Response(HttpStatus.OK.value(), "Successfully counted data", count);
+    }
+
+    public Response countTodolist() {
+        Long count = todolistRepo.count();
+        return new Response(HttpStatus.OK.value(), "Successfully counted data", count);
+    }
+
 
 }

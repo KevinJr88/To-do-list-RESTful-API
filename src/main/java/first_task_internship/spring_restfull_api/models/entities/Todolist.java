@@ -12,7 +12,6 @@ import java.util.Date;
 @Table(name="tbl_todolist")
 @Where(clause = "is_deleted = false")
 
-
 public class Todolist implements Serializable {
 
     private static final long serialVersionUID = 1L;
